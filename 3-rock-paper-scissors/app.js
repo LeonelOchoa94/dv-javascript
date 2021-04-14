@@ -38,8 +38,8 @@ function startGame(event) {
 
     resultElement.textContent = winner;
 
-    wonElement.innerHTML = "You won " + timesYouWon;
-    lostElement.textContent = "You lost " + timesYouLost;
+    wonElement.innerHTML = "You won: " + timesYouWon;
+    lostElement.textContent = "You lost: " + timesYouLost;
     endGame();
 }
 
@@ -68,30 +68,22 @@ function setWinner(playerChoice, computerChoice) {
         timesYouWon++;
         return "You won" + " with " + playerChoice + " against " + computerChoice;
     } else if (playerChoice === computerChoice) {
-        return "You draw" + " with " + playerChoice + " against " + computerChoice;
+        return "You tied" + " with " + playerChoice + " against " + computerChoice;
     } else {
         timesYouLost++;
         return "You lost" + " with " + playerChoice + " against " + computerChoice;
     }
 }
 
-function MessageWon() {
-    alert("You won")
-}
 
-function MessageLost() {
-    alert("You lost")
-}
-
-var message;
 
 function endGame() {
     if (timesYouWon === 3) {
-        message = setTimeOut(MessageWon, 3000);
+        window.alert("You won! Congrats!")
         timesYouLost = 0;
         timesYouWon = 0;
     } else if (timesYouLost === 3) {
-        message = setTimeOut(MessageLost, 3000);
+        window.alert("You Lost!")
         timesYouLost = 0;
         timesYouWon = 0;
     }
